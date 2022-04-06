@@ -1,0 +1,41 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content;
+}
+
+.checkout__ad {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.checkout__labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.checkout__title {
+  margin-right: 10px;
+  padding: 10px 10px 0 10px;
+}
+
+.checkout__priceLabel {
+  align-self: flex-end;
+  margin: 0 5px -5px 0;
+}
+
+.checkout hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.checkout__left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+} 

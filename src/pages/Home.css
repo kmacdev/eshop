@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 100%; 
+}
+
+.home__image {
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.grid__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 250px;
+  width: 100%;
+}
+
+.home__grid {  
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 25vw);
+  grid-auto-rows: 400px;
+  grid-auto-flow: dense;
+  z-index: 1; 
+  max-width: 100%;
+}

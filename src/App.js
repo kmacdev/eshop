@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Checkout from './pages/Checkout';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/' element={<Home />} />
+          <Route
+            path='/test'
+            element={
+              <div>
+                <h2>Test Page</h2>
+                <p>hello!</p>
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+//Photo by <a href="https://unsplash.com/@kolamdigital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andy Hermawan</a> on <a href="https://unsplash.com/s/photos/online-store?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
