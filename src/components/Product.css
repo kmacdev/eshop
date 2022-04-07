@@ -56,9 +56,14 @@
   border: 1px solid;
   padding: 5px;
   margin: 10px auto;
-  width: 120px;
-  border-color: #a88734 #9c7e31 #846a29;
+  width: 150px;
+  border-color: #846a29;
   color: #48391f;
+}
+
+.product > button:hover {
+  background: #f9c97e;
+
 }
 
 .product > button:active {

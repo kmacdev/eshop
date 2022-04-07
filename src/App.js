@@ -6,7 +6,9 @@ import {
 import Header from './components/Header';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
+import Login from './pages/Login';
 import './App.css';
+import React from 'react';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          <Route path='/login' element={<Login />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/' element={<Home />} />
           <Route
@@ -34,3 +37,5 @@ function App() {
 export default App;
 
 //Photo by <a href="https://unsplash.com/@kolamdigital?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andy Hermawan</a> on <a href="https://unsplash.com/s/photos/online-store?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+

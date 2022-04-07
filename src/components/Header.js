@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../store/cart-context';
+import AuthContext from '../store/auth-context';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
@@ -9,9 +10,15 @@ import './Header.css';
 
 const Header = props => {
   const context = useContext(CartContext);
+  const auth = useContext(AuthContext);
+
   const { cart } = context;
-  let itemCount = 0;
-  cart.forEach(item => (itemCount += item.amount));
+  const { isLogin, logout } = auth;
+
+  let itemCount = cart.reduce(
+    (amount, item) => (amount += item.amount),
+    0,
+  );
 
   return (
     <div className='header'>
@@ -31,7 +38,27 @@ const Header = props => {
       <nav className='header__nav'>
         <div className='nav__item'>
           <span className='nav__itemLineOne'>Hello Guest</span>
-          <span className='nav__itemLineTwo'>Sign In</span>
+          {!isLogin && (
+            <Link
+              to='/login'
+              style={{ textDecoration: 'none', color: 'white' }}
+            >
+              <span className='nav__itemLineTwo'>Sign In</span>
+            </Link>
+          )}
+          {isLogin && (
+            <Link
+              to='/'
+              style={{
+                textDecoration: 'none',
+                color: 'white',
+                fontWeight: '700',
+              }}
+              onClick={logout}
+            >
+              Sign Out
+            </Link>
+          )}
         </div>
         <div className='nav__item'>
           <span className='nav__itemLineOne'>Your</span>

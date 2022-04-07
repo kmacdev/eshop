@@ -33,7 +33,7 @@ export const CartContextProvider = props => {
     console.log(cartProducts)
   }, [cartProducts])
 
-  const removeProductFromCartHandler = ({ id }) => {
+  const removeProductFromCartHandler = (id) => {
     setCartProducts(prev => prev.filter(item => item.id !== id));
   };
 

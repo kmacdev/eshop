@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../store/cart-context';
 import { Rating } from 'react-simple-star-rating';
 import './CheckoutProduct.css';
 
-const CheckoutProduct = ({id, image, title, rating, price, alt, amount}) => {
+const CheckoutProduct = ({
+  id,
+  image,
+  title,
+  rating,
+  price,
+  alt,
+  amount,
+}) => {
+
+  const context = useContext(CartContext);
+  const {removeProductFromCart} = context;
+  
+  const removeFromCartHandler = () => {
+    removeProductFromCart(id);
+  }
+
   const capsTitle = title
     .split(' ')
     .map(word => {
       return word[0].toUpperCase() + word.substring(1);
     })
     .join(' ');
-  
-  
+
   return (
     <div id={id} className='checkoutProduct'>
       <img src={image} alt={alt} />
@@ -28,8 +44,11 @@ const CheckoutProduct = ({id, image, title, rating, price, alt, amount}) => {
             allowHalfIcon={true}
           />
         </div>
-        <button className='checkoutProduct__button'>
-          Remove from Cart
+        <button
+          className='checkoutProduct__button'
+          onClick={removeFromCartHandler}
+        >
+          Delete
         </button>
       </div>
     </div>

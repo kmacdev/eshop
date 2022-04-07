@@ -36,9 +36,13 @@
 }
 
 .checkoutProduct__info > button {
-  background: #ff9f00;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
-  color: #111;
+  color: #5656fc;
+  font-weight: 400;
+  letter-spacing: .06em;
+  border: none;
+  background: none;
+}
+
+.checkoutProduct__info > button:hover {
+  color: #0000ff;
 }
